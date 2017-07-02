@@ -17,9 +17,9 @@ proc wrap_route(req: Request, aHandler: proc) {.async.} =
 proc handler(req: Request) {.async.} =
   case req.url.path
   of "/hello":
-    discard wrap_route(req, hello_handle)
+    discard req.wrap_route(hello_handle)
   else:
-    discard wrap_route(req, error_handle)
+    discard req.wrap_route(error_handle)
 
 proc start_application(): Future[system.void] = 
   echo "\nStarting application..."

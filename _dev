@@ -1,2 +1,2 @@
 #!/bin/bash
-nimble build && ./main.exe
+nimble build && ./main.exe || ./main
